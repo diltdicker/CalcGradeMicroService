@@ -126,4 +126,9 @@ public class CalcLogic {
 		JSONObject jsonObj = new JSONObject().element("grade", grade);
 		return jsonObj.toString();
 	}
+	
+	static public String error(Exception e) {
+		JSONObject jsonObj = new JSONObject().element("error", e.toString());
+		return jsonObj.toString();
+	}
 }

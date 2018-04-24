@@ -41,8 +41,14 @@ public class lab5calc extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append(CalcLogic.getService().calculateGrade("2", "History"));//.append("Served at: ").append(request.getContextPath());
+		try {
+			String yearStr = request.getParameter("year");
+			String subjectStr = request.getParameter("subject");
+			System.out.println("year: " + yearStr + " subject: " + subjectStr);
+			response.getWriter().append(CalcLogic.getService().calculateGrade(yearStr, subjectStr));
+		} catch (Exception e) {
+			response.getWriter().append(CalcLogic.error(e));
+		}
 	}
 
 }
