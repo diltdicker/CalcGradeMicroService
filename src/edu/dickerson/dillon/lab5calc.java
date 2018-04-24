@@ -42,7 +42,7 @@ public class lab5calc extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append(CalcLogic.getService().calculateGrade("2", "History"));//.append("Served at: ").append(request.getContextPath());
 	}
 
 }
